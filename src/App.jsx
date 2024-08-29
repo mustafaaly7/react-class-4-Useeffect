@@ -9,10 +9,20 @@ function App() {
   const [products, setProducts] = useState([])
   const [input, setInput] = useState('')
 
+
+
+
+// so why we use use effect? 
+// cuz it runs after rendering 
+// its major use is for api and etc 
+// it'll re render after it rendered 
+// it runs at the end 
+
+// if we use use state and fetch api there it will stuck in inifity loop 
+
   useEffect(() => {
     FetchProducts()
-    // console.log(filtered);
-    // console.log(products);
+   
 
   }, [])
 
