@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 function App() {
   const [products, setProducts] = useState([])
   const [input, setInput] = useState('')
+  const [categoryInput, setCategoryinput] = useState('')
 
 
 
@@ -39,27 +40,39 @@ function App() {
 
   // console.log(products);
   const filtered = products.filter((data) => (
-    data.title.toLowerCase().includes(input.toLowerCase())
-
+    data.title.toLowerCase().includes(input.toLowerCase()) &&
+    data.category.toLowerCase().includes(categoryInput.toLowerCase())
     // console.log(data.title.toLowerCase());
     // console.log(data.id);
 
   ))
-  console.log(products);
+  
   
   return (
     <>
       <Header />
       
-      <input type="text"
+      
+<input type="text"
         value={input}
-        placeholder='Search Here'
+        placeholder='Search By Title Here'
         onChange={(e) => {
           setInput(e.target.value)
           // console.log(input);
 
         }
         } className='mx-auto my-5 border w-1/2 text-2xl shadow border-shadow	 text-center border-black	placeholder-text-black	' />
+
+<input type="text"
+        value={categoryInput}
+        placeholder='Search By Category Here'
+        onChange={(e) => {
+          setCategoryinput(e.target.value)
+          // console.log(input);
+
+        }
+        } className=' my-5 border border-shadow text-2xl shadow border-shadow mx-5	 text-center border-black	placeholder-text-black	' />
+
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
